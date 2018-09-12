@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-12">
+    <img
+      src="{{ recipeDetails.imagePath }}"
+      alt="{{ recipeDetails.name }}"
+      class="img-responsive"
+      style="max-height: 250px;"
+    >
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h1 class="h3 my-3">{{ recipeDetails.name }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <!-- appDropdown is a custom directive, which attach .show when user click -->
+    <div class="btn-group" appDropdown>
+      <button id="editRecipeToggle" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Edit Recipe
+      </button>
+      <div class="dropdown-menu" aria-labelledby="editRecipeToggle">
+        <a class="dropdown-item" (click)="onAddToShoppingList()">Add to Shopping List</a>
+        <a class="dropdown-item" (click)="onEditRecipe()">Edit Recipe</a>
+        <a class="dropdown-item">Delete Recipe</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    {{ recipeDetails.description }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h2 class="h5 my-3">Ingredients</h2>
+    <ul class="list-group">
+      <li
+      class="list-group-item"
+      *ngFor="let ingredient of recipeDetails.ingredients">
+      {{ ingredient.name }} ({{ ingredient.amount }})
+      </li>
+    </ul>
+  </div>
+</div>

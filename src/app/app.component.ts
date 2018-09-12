@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'my-first-app';
+  loadedFeature = 'recipes';
+
+  // event fired when user click the navigation link
+  onNavigateLink(selectedFeature: string) {
+    this.loadedFeature = selectedFeature;
+  }
 }

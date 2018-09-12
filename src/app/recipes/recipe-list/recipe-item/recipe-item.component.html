@@ -1,0 +1,14 @@
+<a class="list-group-item list-group-item-action clearfix"
+  [routerLink]="[index]"
+  routerLinkActive="active" >
+  <div class="float-left">
+    <h4 class="h5">{{ recipe.name }} </h4>
+    <p>{{ recipe.description }} </p>
+  </div>
+  <span class="float-right">
+    <!-- Here you can use string interpolation (src="{{recipe.imagePath}}") or property binding -->
+    <img
+    [src]="recipe.imagePath"
+    alt="{{ recipe.name }}" class="img-responsive" style="max-height:50px">
+  </span>
+</a>
