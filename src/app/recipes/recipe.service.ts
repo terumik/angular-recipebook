@@ -25,6 +25,12 @@ export class RecipeService {
     private shoppingListService: ShoppingListService
   ) {}
 
+  // set recipes stored in database to the above array
+  setRecipe(recipesFromDb: Recipe[]) {
+    this.recipes = recipesFromDb;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   getRecipes() {
     // return copy of the above array
     console.log(this.recipes);

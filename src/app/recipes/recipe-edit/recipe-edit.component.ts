@@ -63,8 +63,8 @@ export class RecipeEditComponent implements OnInit {
     // (<FormArray> ***) to cast *** to FormArray
     (<FormArray> this.recipeForm.get('ingredients')).push(
       new FormGroup({
-        'ingredientName': new FormControl(null, Validators.required),
-        'ingredientAmount': new FormControl(null,
+        'name': new FormControl(null, Validators.required),
+        'amount': new FormControl(null,
           [Validators.required, Validators.pattern(/^[1-9]+[1-9]*$/)]
         )
       })
