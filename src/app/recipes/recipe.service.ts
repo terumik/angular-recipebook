@@ -34,7 +34,6 @@ export class RecipeService {
   getRecipes() {
     // return copy of the above array
     console.log(this.recipes);
-
     return this.recipes.slice();
   }
 

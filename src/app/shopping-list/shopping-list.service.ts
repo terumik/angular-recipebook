@@ -17,6 +17,12 @@ export class ShoppingListService {
     new Ingredient('Onion', 1)
   ];
 
+  // set ingredients stored in database to the above array
+  setIngredients(ingredientsFromDb: Ingredient[]) {
+      this.ingredients = ingredientsFromDb;
+      this.ingredientChanged.next(this.ingredients.slice());
+    }
+
   // return all ingredients in the array
   getIngredients() {
     // copy of the above array

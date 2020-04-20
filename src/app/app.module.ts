@@ -21,6 +21,9 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { RecipeService } from './recipes/recipe.service';
 import { DataStorageService } from './shared/data-storage.service';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   // use components, directives
@@ -36,6 +39,8 @@ import { DataStorageService } from './shared/data-storage.service';
     DropdownDirective,
     RecipeStartComponent,
     RecipeEditComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   // use other modules
   imports: [
@@ -48,7 +53,7 @@ import { DataStorageService } from './shared/data-storage.service';
   // Create a shared instance throughout the application
   // ShoppingListService is needed for both shopping-list and recipe components
   // as well as RecipeService (otherwise, edited recipes will be destroyed when navigate to other component.)
-  providers: [ShoppingListService, RecipeService, DataStorageService],
+  providers: [ShoppingListService, RecipeService, DataStorageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,15 +16,35 @@
     </ul>
     <!-- Manage Menu -->
     <ul class="nav navbar-nav ml-auto">
-      <li class="dropdown" appDropdown>
-        <a class="nav-link dropdown-toggle">
-          Manage Data
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" (click)="onSaveData()">Save Data</a>
-          <a class="dropdown-item" (click)="onLoadData()">Load Data</a>
-        </div>
-      </li>
+      <ng-template [ngIf]="!authService.isAuthenticated()">
+        <li>
+          <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="active" >
+            Registration
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" [routerLink]="['/signin']" routerLinkActive="active" >
+            Login
+          </a>
+        </li>
+      </ng-template>
+      <ng-template [ngIf]="authService.isAuthenticated()">
+        <li>
+          <a class="nav-link" (click)="onLogoutUser()" >
+            Logout
+          </a>
+        </li>
+        <!-- todo: directives should be appToggle or something. -->
+        <li class="dropdown" appDropdown>
+          <a class="nav-link dropdown-toggle">
+            Manage Data
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="onSaveData()">Save Data</a>
+            <a class="dropdown-item" (click)="onLoadData()">Load Data</a>
+          </div>
+        </li>
+      </ng-template>
     </ul>
   </div>
 
